@@ -13,7 +13,7 @@ components.forEach(component => {
 });
 
 plugins.forEach(plugin => {
-  app.use(plugin as any); // ElMessage 未通过类型检查，暂用any
+  app.use(plugin);
 });
 
 app.use(router);
