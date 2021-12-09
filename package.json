@@ -1,42 +1,39 @@
 {
-  "name": "vue-element-plus-admin-template",
-  "version": "1.0.0",
+  "name": "vue-element-plus-admin-boilerplate",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:test": "vue-cli-service build --mode test",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "build:test": "vue-cli-service build --mode test"
   },
   "dependencies": {
+    "@element-plus/icons": "0.0.11",
     "axios": "^0.21.4",
-    "core-js": "^3.18.0",
-    "element-plus": "^1.0.2-beta.71",
+    "core-js": "^3.19.3",
+    "element-plus": "^1.2.0-beta.5",
     "nprogress": "^0.2.0",
     "path-browserify": "^1.0.1",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.11"
+    "vue": "^3.2.24",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "^4.5.15",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.2.13",
+    "@vue/compiler-sfc": "^3.2.24",
     "@vue/eslint-config-typescript": "^5.0.2",
-    "@vue/test-utils": "^2.0.0-rc.14",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.18.0",
-    "sass": "^1.42.0",
+    "eslint-plugin-vue": "^7.20.0",
+    "sass": "^1.44.0",
     "sass-loader": "^8.0.2",
-    "typescript": "^4.4.3",
-    "vue-cli-plugin-element-plus": "0.0.13",
-    "vue-jest": "^5.0.0-0"
+    "typescript": "~4.1.5",
+    "unplugin-auto-import": "^0.5.1",
+    "unplugin-vue-components": "^0.17.6"
   }
 }

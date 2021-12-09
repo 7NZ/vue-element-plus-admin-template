@@ -15,7 +15,7 @@ export const constantRoutes: RouteConfig[] = [
       path: 'dashboard',
       name: 'index',
       component: () => import('@/views/home/index.vue'),
-      meta: { title: '首页', icon: 'el-icon-s-home' }
+      meta: { title: '首页', icon: 'home' }
     }]
   },
   {
@@ -26,14 +26,14 @@ export const constantRoutes: RouteConfig[] = [
         path: 'index',
         name: 'form',
         component: () => import('@/views/form/index.vue'),
-        meta: { title: '表单', icon: 'el-icon-edit-outline' }
+        meta: { title: '表单', icon: 'edit' }
       }
     ]
   },
   {
     path: '/table',
     component: Layout,
-    meta: { title: '表格', icon: 'el-icon-edit-outline' },
+    meta: { title: '表格', icon: 'document' },
     children: [
       {
         path: 'index',

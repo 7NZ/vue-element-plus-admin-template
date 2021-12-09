@@ -12,7 +12,7 @@
       width="120">
       <template #default="scope">
         <el-button
-          @click.prevent="deleteRow(scope.$index, tableData)"
+          @click.prevent="deleteRow(scope.$index)"
           type="text"
           size="small">
           移除
@@ -82,8 +82,8 @@ export default defineComponent({
       zip: 200333
     }]);
 
-    function deleteRow(index: number, rows: []) {
-      rows.splice(index, 1);
+    function deleteRow(index: number) {
+      tableData.value.splice(index, 1);
     }
 
     return {

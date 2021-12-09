@@ -1,11 +1,16 @@
 <template>
   <el-header class="navbar">
     <div class="hamburger-container" @click="handleMenuCollapse">
-      <i :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+      <template v-if="collapse">
+        <el-icon :size="20"><expand /></el-icon>
+      </template>
+      <template v-else>
+        <el-icon :size="20"><fold /></el-icon>
+      </template>
     </div>
     <div class="right-menu">
       <el-dropdown>
-        <i class="el-icon-setting" style="margin-right: 7px"></i>
+        <el-icon :size="16" style="margin-right: 7px;"><setting /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item>登出</el-dropdown-item>
@@ -17,11 +22,17 @@
   </el-header>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, toRefs } from 'vue';
+import { Expand, Fold, Setting } from '@element-plus/icons';
 import isCollapse from './Sidebar/collapse';
 
 export default defineComponent({
+  components: {
+    Expand,
+    Fold,
+    Setting
+  },
   setup() {
     const { collapse } = toRefs(isCollapse);
 

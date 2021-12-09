@@ -3,15 +3,17 @@
     <template v-if="hasOneShowingChild(item.children) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
-          <i :class="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)"></i>
+          <!-- <i :class="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)"></i>-->
+          <el-icon><component :is="iconMap[onlyOneChild.meta.icon||(item.meta&&item.meta.icon)]"></component></el-icon>
           <template #title>{{onlyOneChild.meta.title}}</template>
         </el-menu-item>
       </app-link>
     </template>
 
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)">
       <template #title>
-        <i :class="item.meta.icon||(item.meta&&item.meta.icon)"></i>
+        <!-- <i :class="item.meta.icon||(item.meta&&item.meta.icon)"></i> -->
+        <el-icon><component :is="iconMap[item.meta.icon]"></component></el-icon>
         <span>{{item.meta.title}}</span>
       </template>
       <sidebar-item
@@ -22,17 +24,17 @@
         :base-path="resolvePath(child.path)"
         class="nest-menu"
       />
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed, toRefs } from 'vue';
-import path from 'path';
+import path from 'path-browserify';
 import { isExternal } from '@/utils/validate';
 import AppLink from './Link.vue';
-// eslint-disable-next-line no-unused-vars
-import { RouteConfig } from '@/router/index';
+import type { RouteConfig } from '@/router/index';
+import iconMap from './iconMap';
 
 export default defineComponent({
   name: 'SidebarItem',
@@ -57,7 +59,7 @@ export default defineComponent({
   setup(props) {
     const { basePath } = toRefs(props);
     const onlyOneChild = computed(() => {
-      let routeObj = {};
+      let routeObj: any = {};
       const routeItem = props.item;
       let showingChildren = [];
       if (routeItem.children) {
@@ -97,7 +99,8 @@ export default defineComponent({
     return {
       onlyOneChild,
       hasOneShowingChild,
-      resolvePath
+      resolvePath,
+      iconMap
     };
   }
 });

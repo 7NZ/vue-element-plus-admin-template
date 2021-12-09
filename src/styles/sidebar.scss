@@ -41,19 +41,19 @@
     }
 
     // menu hover
-    .submenu-title-noDropdown,
-    .el-submenu__title {
+    .sub-menu-title-noDropdown,
+    .el-sub-menu__title {
       &:hover {
         background-color: $menuHover !important;
       }
     }
 
-    .is-active>.el-submenu__title {
+    .is-active>.el-sub-menu__title {
       color: $subMenuActiveText !important;
     }
 
-    & .nest-menu .el-submenu>.el-submenu__title,
-    & .el-submenu .el-menu-item.is-active {
+    & .nest-menu .el-sub-menu>.el-sub-menu__title,
+    & .el-sub-menu .el-menu-item.is-active {
       background-color: $subMenuBg !important;
 
       &:hover {
@@ -61,8 +61,10 @@
       }
     }
 
+
     // 菜单收缩后样式，隐藏菜单文字和子菜单提示箭头图标
-    .el-menu--collapse .el-submenu > .el-submenu__title {
+    .el-menu--collapse .el-menu-item, 
+    .el-menu--collapse .el-sub-menu>.el-sub-menu__title {
       span {
         height: 0;
         width: 0;
@@ -70,10 +72,11 @@
         visibility: hidden;
         display: inline-block;
       }
-      .el-submenu__icon-arrow {
+      .el-sub-menu__icon-arrow {
         display: none;
       }
     }
+    
   }
-
+  
 }

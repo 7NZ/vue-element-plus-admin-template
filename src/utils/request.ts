@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ElMessage } from 'element-plus';
+import { getCurrentInstance } from 'vue';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import apiUrl from './apiUrl';
@@ -23,6 +23,8 @@ const codeMessage: CodeStatus = {
   503: '维护中',
   504: '网关超时'
 };
+
+const { proxy }: any = getCurrentInstance();
 
 const instance = axios.create({
   baseURL: apiUrl,
@@ -49,7 +51,7 @@ instance.interceptors.response.use(response => {
   if (response.status === 200) {
     // 状态码不是ok则失败，这里直接提示，调用时不需要再提示失败
     if (response.data.code !== 'ok') {
-      ElMessage.warning(response.data.msg);
+      proxy.$message.warning(response.data.msg);
       return Promise.reject(response.data);
     }
     return response.data;
@@ -61,12 +63,12 @@ instance.interceptors.response.use(response => {
   console.warn('request error:', error);
   if (data) {
     const msg = codeMessage[data.status] || '未知错误';
-    ElMessage.error(msg);
+    proxy.$message.error(msg);
     return Promise.reject(data);
   } if (!window.navigator.onLine) {
-    ElMessage.error('网络异常，请检查网络是否正常连接');
+    proxy.$message.error('网络异常，请检查网络是否正常连接');
   } else {
-    ElMessage.error('请求出错，请重试');
+    proxy.$message.error('请求出错，请重试');
     return Promise.reject(error);
   }
 });

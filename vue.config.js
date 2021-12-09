@@ -1,3 +1,7 @@
+const AutoImport = require('unplugin-auto-import/webpack');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
+
 module.exports = {
   // 部署生产环境和开发环境下的URL。
   // 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上
@@ -9,6 +13,16 @@ module.exports = {
   filenameHashing: true,
   runtimeCompiler: false,
   productionSourceMap: false,
+  configureWebpack: {
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
+  },
   devServer: {
     port: 8082,
     // 代理
