@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, toRefs } from 'vue';
-import { Expand, Fold, Setting } from '@element-plus/icons';
+import { Expand, Fold, Setting } from '@element-plus/icons-vue';
 import isCollapse from './Sidebar/collapse';
 
 export default defineComponent({

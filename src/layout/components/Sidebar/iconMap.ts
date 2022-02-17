@@ -1,4 +1,4 @@
-import { Document, HomeFilled, Edit } from '@element-plus/icons';
+import { Document, HomeFilled, Edit } from '@element-plus/icons-vue';
 
 const iconMap: Record<any, any> = {
   document: Document,
